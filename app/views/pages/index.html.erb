@@ -1,0 +1,40 @@
+<h1>Library App</h1> 
+
+ <div ng-controller="LibraryCtrl">
+
+
+    <form ng-submit="addLibrary()">
+      <input type="text" ng-model="newLibrary.name"><br>
+      <input type="text" ng-model="newLibrary.description"><br>
+      <textarea ng-model="newLibrary.content"></textarea><br>
+      <button>Save Library</button>
+    </form>
+    
+    <div ng-repeat="library in library">
+      <article>
+        <header>
+          <h1>{{library.name}}</h1>
+        </header>
+        <p>
+          {{library.description}}
+        </p>
+        {{library.books.title}}
+      
+        <section ng-controller="BooksCtrl">
+           
+          <form ng-submit="addBook()">
+            <input type="text" ng-model="newBook.name"><br>
+            <textarea ng-model="newBook.content"></textarea><br>
+            <button>Add Book</button>
+          </form>
+          <h2>Books</h2>
+          <article ng-repeat="book in books">
+            <header>
+              <h3>{{book.title}}</h3>
+            </header>
+            <p>{{book.author}}</p>
+          </article>
+        </section>
+      </article>
+    </div>
+  </div>

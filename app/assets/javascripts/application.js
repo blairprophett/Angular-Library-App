@@ -12,7 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require angular.min
-//= require angular-resource.min
-//= require angular-route.min
+//= require angular/angular.min
+//= require angular/angular-resource.min
+//= require angular/angular-route.min
 //= require_tree .
