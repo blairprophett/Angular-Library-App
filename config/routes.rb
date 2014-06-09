@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   
   root 'pages#index'
-  # resources :library, except: [:new, :edit]
+  resources :libraries do
+    resources :books, except: [:new, :edit]
+  end
 
 end
