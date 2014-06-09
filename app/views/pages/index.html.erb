@@ -2,39 +2,31 @@
 
  <div ng-controller="LibraryCtrl">
 
-
     <form ng-submit="addLibrary()">
-      <input type="text" ng-model="newLibrary.name"><br>
-      <input type="text" ng-model="newLibrary.description"><br>
-      <textarea ng-model="newLibrary.content"></textarea><br>
+      <input type="text" ng-model="newLibrary.title"><br>
+      <input type="text" ng-model="newLibrary.owner"><br>
       <button>Save Library</button>
     </form>
     
-    <div ng-repeat="library in library">
-      <article>
-        <header>
-          <h1>{{library.name}}</h1>
-        </header>
-        <p>
-          {{library.description}}
-        </p>
-        {{library.books.title}}
+    <div ng-repeat="library in libraries">
+      <h3>{{library.title}}</h3>
+      <p>{{library.owner}}</p>
       
-        <section ng-controller="BooksCtrl">
-           
-          <form ng-submit="addBook()">
-            <input type="text" ng-model="newBook.name"><br>
-            <textarea ng-model="newBook.content"></textarea><br>
-            <button>Add Book</button>
-          </form>
-          <h2>Books</h2>
-          <article ng-repeat="book in books">
-            <header>
-              <h3>{{book.title}}</h3>
-            </header>
-            <p>{{book.author}}</p>
-          </article>
-        </section>
-      </article>
+      <section ng-controller="BooksCtrl">
+         
+        <form ng-submit="addBook()">
+          <input type="text" ng-model="newBook.title"><br>
+          <input type="text" ng-model="newBook.author"><br>
+          <input type="text" ng-model="newBook.description"><br>
+          <button>Add Book</button>
+        </form>
+        
+        <h2>Books</h2>
+        <div ng-repeat="book in library.books">
+          <h3>{{book.title}}</h3>
+          <p>{{book.author}}</p>
+          <p>{{book.description}}</p>
+        </div>
+      </section>
     </div>
   </div>
